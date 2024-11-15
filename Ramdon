@@ -1,5 +1,37 @@
 NarutoBot-Ai🦊
-
+Subproceso orden(x, i, z por referencia ,mayor)
+		Definir Aux Como Real
+		Si x < i Entonces
+			Aux <- x
+			x <- i
+			i <- Aux
+		Fin Si
+		
+		Si x < z Entonces
+			Aux <- x
+			x <- z
+			z <- Aux
+		Fin Si
+		
+		Si i < z Entonces
+			Aux <- i
+			i <- z
+			z <- Aux
+		Fin Si
+	Fin Subproceso
+	Algoritmo Ordenarnum
+    Definir a, b, c, resultado Como Real
+	
+    // Pedimos los tres números al usuario
+    Escribir "Ingrese el primer número: "
+    Leer a
+    Escribir "Ingrese el segundo número: "
+    Leer b
+    Escribir "Ingrese el tercer número: "
+    Leer c
+    orden(x,i,z,resultado)
+    Escribir "Los números ordenados de mayor a menor son: ", a, ", ", b, ", ", c
+    FinAlgoritmo
 
 
 
