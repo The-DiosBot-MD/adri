@@ -1,0 +1,95 @@
+Algoritmo puntajes1
+	Dimensionar colores[i], disciplinas[j], puntajes[4,5], promedios[5];
+	Escribir "Ingrese los nombres de los equipos (colores):"
+	Para i = 1 Hasta 4 Con Paso 1
+		Escribir "Equipo ", i, ": "
+		Leer colores[i]
+	FinPara
+	
+	Escribir "Ingrese los nombres de las disciplinas:"
+	Para j = 1 Hasta 5 Con Paso 1
+		Escribir "Disciplina ", j, ": "
+		Leer disciplinas[j]
+	FinPara
+	CargarMatriz(puntajes)
+	DeterminarGanador(puntajes)
+	EncontrarPuntajeMasBajo(puntajes)
+	Escribir "Ingrese el número del equipo (1-4) para consultar su total de puntos: "
+	Definir equipoBuscado Como Entero
+	Leer equipoBuscado
+	TotalPorColor(puntajes, equipoBuscado)
+	CalcularPromedios(puntajes, promedios)
+	Para j = 1 Hasta 5 Con Paso 1
+		Escribir "El promedio de la disciplina ", disciplinas[j], " es: ", promedios[j]
+	FinPara
+	MejorDisciplina(promedios)
+FinAlgoritmo
+SubProceso CargarMatriz(matriz[4.5], por referencia)
+    Para i = 1 Hasta 4 Con Paso 1
+        Escribir "Cargando datos del equipo ", colores[i]
+        Para j = 1 Hasta 5 Con Paso 1
+            Escribir "Ingrese puntaje en la disciplina ", disciplinas[j], " (0: Pierde, 1: Empate, 3: Gana): "
+            Leer matriz[i,j]
+            Mientras matriz[i,j] <> 0 Y matriz[i,j] <> 1 Y matriz[i,j] <> 3 Hacer
+                Escribir "Puntaje inválido. Ingrese nuevamente."
+                Leer matriz[i,j]
+            FinMientras
+        FinPara
+    FinPara
+Fin SubProceso
+SubProceso DeterminarGanador(matriz[4,5])
+    Definir puntajeTotal[4] Como Entero
+    Definir maxPuntaje, ganador Como Entero
+    maxPuntaje <- 0
+    Para i = 1 Hasta 4 Con Paso 1
+        puntajeTotal[i] <- 0
+        Para j = 1 Hasta 5 Con Paso 1
+            puntajeTotal[i] <- puntajeTotal[i] + matriz[i,j]
+        FinPara
+        Si puntajeTotal[i] > maxPuntaje Entonces
+            maxPuntaje <- puntajeTotal[i]
+            ganador <- i
+        FinSi
+    FinPara
+    Escribir "El equipo ganador es: ", colores[ganador]
+Fin SubProceso
+SubProceso EncontrarPuntajeMasBajo(matriz[4,5])
+    Definir minimo Como Entero
+    minimo <- matriz[1,1]
+    Para i = 1 Hasta 4 Con Paso 1
+        Para j = 1 Hasta 5 Con Paso 1
+            Si matriz[i,j] < minimo Entonces
+                minimo <- matriz[i,j]
+            FinSi
+        FinPara
+    FinPara
+    Escribir "El puntaje más bajo es: ", minimo
+Fin SubProceso
+SubProceso TotalPorColor(matriz[4,5], equipoBuscado Como Entero)
+    Definir total Como Entero
+    total <- 0
+    Para j = 1 Hasta 5 Con Paso 1
+        total <- total + matriz[equipoBuscado,j]
+    FinPara
+    Escribir "El total de puntos del equipo ", colores[equipoBuscado], " es: ", total
+Fin SubProceso
+SubProceso CalcularPromedios(matriz[4,5], por referencia, promedios[5])
+    Para j = 1 Hasta 5 Con Paso 1
+        Definir suma Como Entero
+        suma <- 0
+        Para i = 1 Hasta 4 Con Paso 1
+            suma <- suma + matriz[i,j]
+        FinPara
+        promedios[j] <- suma / 4
+    FinPara
+Fin SubProceso
+SubProceso MejorDisciplina(promedios[5] por referencia , mayor)
+    Definir mejorIndice Como Entero
+    mejorIndice <- 1
+    Para j = 2 Hasta 5 Con Paso 1
+        Si promedios[j] > promedios[mejorIndice] Entonces
+            mejorIndice <- j
+        FinSi
+    FinPara
+    Escribir "La disciplina con mejor promedio es: ", disciplinas[mejorIndice]
+Fin SubProceso
