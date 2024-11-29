@@ -1,3 +1,4 @@
+Ejercicio 1 ......
 Algoritmo puntajes1
 	Dimensionar colores[i], disciplinas[j], puntajes[4,5], promedios[5];
 	Escribir "Ingrese los nombres de los equipos (colores):"
@@ -92,4 +93,113 @@ SubProceso MejorDisciplina(promedios[5] por referencia , mayor)
         FinSi
     FinPara
     Escribir "La disciplina con mejor promedio es: ", disciplinas[mejorIndice]
+Fin SubProceso
+//....////....////....////....////....////....////....////....////....////....////....////....////....////....////....////....////....////....//
+Ejercicio 2...
+Algoritmo Los_Votos
+	Dimensionar candidatos[i],partidos[i];
+	Dimensionar  candidatos[3] ,partidos[3] ,votos[5,20] ,totalCandidatos[3];
+	Definir asistentes Como Entero
+	Definir blancos, nulos Como Entero
+	Escribir "Ingrese los nombres de los candidatos:"
+	Para i = 1 Hasta 3 Con Paso 1
+		Escribir "Candidato ", i, ":"
+		Leer candidatos[i]
+		Escribir "Partido del candidato ", i, ":"
+		Leer partidos[i]
+	FinPara
+	CargarVotos(votos)
+	
+	asistentes <- TotalAsistentes(votos)
+	Escribir "El total de asistentes fue: ", asistentes
+	
+	ContarVotos(votos, totalCandidatos, blancos, nulos)
+	
+	ReporteVotosCandidatos(totalCandidatos, asistentes)
+	
+	ReporteBlancosYPorcentaje(blancos, asistentes)
+	
+	ReporteNulosYPromedio(nulos, 5)
+	
+	DeterminarGanador(totalCandidatos)
+
+FinAlgoritmo
+
+SubProceso CargarVotos(i,j Por Referencia)
+	Dimensionar matriz[5,20];
+    Para i = 1 Hasta 5 Con Paso 1
+        Escribir "Cargando votos para la mesa ", i
+        Para j = 1 Hasta 20 Con Paso 1
+            Escribir "Ingrese el voto del votante ", j, " (1-3: Candidatos, 4: Blanco, 5: Nulo):"
+            Leer matriz[i,j]
+            Mientras matriz[i,j] < 1 O matriz[i,j] > 5 Hacer
+                Escribir "Voto inválido. Intente nuevamente."
+                Leer matriz[i,j]
+            FinMientras
+        FinPara
+    FinPara
+Fin SubProceso
+
+Funcion TotalAsistentes(i,j por referencia)
+    Definir asistentes Como Entero
+	Dimensionar matriz[5,20];
+    asistentes <- 0
+    Para i = 1 Hasta 5 Con Paso 1
+        Para j = 1 Hasta 20 Con Paso 1
+            Si matriz[i,j] <> 0 Entonces
+                asistentes <- asistentes + 1
+            FinSi
+        FinPara
+    FinPara
+FinFuncion
+
+SubProceso ContarVotos(i,j por referencia)
+	Dimensionar matriz[5,20],votosCandidatos[3];
+    blancos <- 0
+    nulos <- 0
+    Para i = 1 Hasta 3 Con Paso 1
+        votosCandidatos[i] <- 0
+    FinPara
+    Para i = 1 Hasta 5 Con Paso 1
+        Para j = 1 Hasta 20 Con Paso 1
+            Segun matriz[i,j] Hacer
+                1: votosCandidatos[1] <- votosCandidatos[1] + 1
+                2: votosCandidatos[2] <- votosCandidatos[2] + 1
+                3: votosCandidatos[3] <- votosCandidatos[3] + 1
+                4: blancos <- blancos + 1
+                5: nulos <- nulos + 1
+            FinSegun
+        FinPara
+    FinPara
+Fin SubProceso
+
+SubProceso ReporteVotosCandidatos(i, totalVotos por referencia)
+	Dimensionar votosCandidatos[3],candidatos[i];
+    Para i = 1 Hasta 3 Con Paso 1
+        Escribir "Candidato ", candidatos[i], " obtuvo ", votosCandidatos[i], " votos (", (votosCandidatos[i] / totalVotos) * 100, "%)."
+    FinPara
+Fin SubProceso
+
+SubProceso ReporteBlancosYPorcentaje(blancos, totalVotos)
+    Escribir "Cantidad de votos blancos: ", blancos
+    Escribir "Porcentaje de votos blancos respecto al total: ", (blancos / totalVotos) * 100, "%"
+Fin SubProceso
+
+SubProceso ReporteNulosYPromedio(nulos, totalMesas)
+    Escribir "Cantidad de votos nulos: ", nulos
+    Escribir "Promedio de votos nulos por mesa: ", nulos / totalMesas
+Fin SubProceso
+
+SubProceso DeterminarGanador(i por referencia)
+	Dimensionar votosCandidatos[3];
+    Definir maxVotos, indiceGanador Como Entero
+    maxVotos <- votosCandidatos[1]
+    indiceGanador <- 1
+    Para i = 2 Hasta 3 Con Paso 1
+        Si votosCandidatos[i] > maxVotos Entonces
+            maxVotos <- votosCandidatos[i]
+            indiceGanador <- i
+        FinSi
+    FinPara
+    Escribir "El ganador es: ", candidatos[indiceGanador], " del partido ", partidos[indiceGanador]
 Fin SubProceso
