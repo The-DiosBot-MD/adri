@@ -1,0 +1,108 @@
+from abc import ABC, abstractmethod
+import math
+
+class Figura(ABC):
+    @abstractmethod
+    def calcular_area(self):
+        pass
+
+class Triangulo(Figura):
+    def __init__(self):
+        print("\n-- Triángulo --")
+        print("Tipos disponibles:")
+        print("1. Base y altura")
+        print("2. Tres lados")
+        print("3. Dos lados y ángulo")
+        opcion = input("Elige el tipo de triángulo (1/2/3): ")
+
+        if opcion == "1":
+            self.tipo = "base_altura"
+            self.base = float(input("Base: "))
+            self.altura = float(input("Altura: "))
+        elif opcion == "2":
+            self.tipo = "tres_lados"
+            self.lado1 = float(input("Lado 1: "))
+            self.lado2 = float(input("Lado 2: "))
+            self.lado3 = float(input("Lado 3: "))
+        elif opcion == "3":
+            self.tipo = "dos_lados_angulo"
+            self.lado1 = float(input("Lado 1: "))
+            self.lado2 = float(input("Lado 2: "))
+            self.angulo = float(input("Ángulo entre ellos (en grados): "))
+        else:
+            self.tipo = None
+            print("Opción no válida.")
+
+    def calcular_area(self):
+        if self.tipo == "base_altura":
+            area = (self.base * self.altura) / 2
+            print(f"Área del Triángulo: {area}")
+        elif self.tipo == "tres_lados":
+            s = (self.lado1 + self.lado2 + self.lado3) / 2
+            area = math.sqrt(s * (s - self.lado1) * (s - self.lado2) * (s - self.lado3))
+            print(f"Área del Triángulo (Herón): {area}")
+        elif self.tipo == "dos_lados_angulo":
+            rad = math.radians(self.angulo)
+            area = 0.5 * self.lado1 * self.lado2 * math.sin(rad)
+            print(f"Área del Triángulo (2 lados y ángulo): {area}")
+        else:
+            print("No se pudo calcular el área.")
+
+class Trapecio(Figura):
+    def __init__(self):
+        print("\n-- Trapecio --")
+        self.base_mayor = float(input("Base mayor: "))
+        self.base_menor = float(input("Base menor: "))
+        self.altura = float(input("Altura: "))
+
+    def calcular_area(self):
+        area = ((self.base_mayor + self.base_menor) * self.altura) / 2
+        print(f"Área del Trapecio: {area}")
+
+class Rectangulo(Figura):
+    def __init__(self):
+        print("\n-- Rectángulo --")
+        self.base = float(input("Base: "))
+        self.altura = float(input("Altura: "))
+
+    def calcular_area(self):
+        area = self.base * self.altura
+        print(f"Área del Rectángulo: {area}")
+
+class Circulo(Figura):
+    def __init__(self):
+        print("\n-- Círculo --")
+        self.radio = float(input("Radio: "))
+
+    def calcular_area(self):
+        area = math.pi * (self.radio ** 2)
+        print(f"Área del Círculo: {area:.2f}")
+
+def seleccionar_figura():
+    print("\n=== Cálculo de Áreas ===")
+    print("1. Triángulo")
+    print("2. Trapecio")
+    print("3. Rectángulo")
+    print("4. Círculo")
+    opcion = input("Elige una figura (1-4): ")
+
+    if opcion == "1":
+        figura = Triangulo()
+    elif opcion == "2":
+        figura = Trapecio()
+    elif opcion == "3":
+        figura = Rectangulo()
+    elif opcion == "4":
+        figura = Circulo()
+    else:
+        print("Opción inválida.")
+        return
+
+    figura.calcular_area()
+
+if __name__ == "__main__":
+    while True:
+        seleccionar_figura()
+        continuar = input("\n¿Deseas calcular otra área? (s/n): ")
+        if continuar.lower() != 's':
+            break
