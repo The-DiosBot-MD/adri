@@ -1,0 +1,120 @@
+🧠 FORMULARIO 1 – SECTOR PROGRAMACIÓN
+Título: Postulación – Sector 1: Programadores
+
+Campos:
+
+Nombre completo o alias
+
+Edad
+
+Correo o WhatsApp de contacto
+
+¿Qué lenguajes de programación dominas?
+
+¿Tienes experiencia en desarrollo de proyectos? ¿Cuáles?
+
+¿Qué tipo de tareas prefieres?
+
+Frontend
+
+Backend
+
+Desarrollo de bots
+
+Bases de datos
+
+Seguridad / Pentesting
+
+Otro: _______
+
+Adjunta ejemplos de tu trabajo (GitHub, portafolio, capturas, etc.)
+
+¿Qué herramientas usas habitualmente para programar? (VSCode, Android Studio, etc.)
+
+¿Qué disponibilidad horaria tienes para trabajar en el equipo?
+
+¿Por qué deseas unirte al sector de programación?
+
+¿Tienes conocimientos en colaboración (Git, Trello, Notion, etc.)?
+
+🛡️ FORMULARIO 2 – SECTOR MODERACIÓN Y ADMINISTRACIÓN
+Título: Postulación – Sector 2: Moderación y Administración
+
+Campos:
+
+Nombre completo o alias
+
+Edad
+
+Correo o WhatsApp de contacto
+
+¿Tienes experiencia moderando grupos o comunidades? Describe brevemente
+
+¿Cómo manejarías una situación de conflicto entre miembros del equipo?
+
+¿Qué plataformas dominas?
+
+WhatsApp
+
+Telegram
+
+Discord
+
+Facebook
+
+Otra: ______
+
+¿Tienes conocimientos en administración de canales o bots de moderación?
+
+¿Cuál es tu disponibilidad horaria para apoyar al equipo?
+
+¿Sabes usar herramientas como Google Forms, Docs, Drive, Trello u otras?
+
+¿Qué te motiva a unirte como moderador o administrador?
+
+¿Te sientes cómodo dando órdenes o instrucciones con respeto?
+
+🎨 FORMULARIO 3 – SECTOR DISEÑO Y LOGOS
+Título: Postulación – Sector 3: Diseño y Logos
+
+Campos:
+
+Nombre completo o alias
+
+Edad
+
+Correo o WhatsApp de contacto
+
+¿Qué herramientas de diseño usas?
+
+Photoshop
+
+Illustrator
+
+Canva
+
+Figma
+
+Otra: ______
+
+¿Qué tipos de diseños sueles realizar?
+
+Logos
+
+Banners
+
+Flyers / Anuncios
+
+Portadas para redes sociales
+
+Otro: ______
+
+Adjunta algunos ejemplos de tus trabajos (enlace o imagen)
+
+¿Tienes experiencia trabajando en equipo o con pedidos personalizados?
+
+¿Cuál es tu disponibilidad horaria para apoyar al equipo?
+
+¿Qué te motiva a unirte como diseñador/a al staff?
+
+¿Estás dispuesto a recibir pedidos urgentes o de entrega rápida?
